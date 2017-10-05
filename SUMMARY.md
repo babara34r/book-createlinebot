@@ -1,12 +1,8 @@
 # Summary
 
+## Preface
+
 * [Introduction](README.md)
-* [First Chapter](chapter1.md)
-* Connect bot to database
-* Create Q&A system
-
-## Temporary
-
 * [Security](temporary/security.md)
 
 ## Contents
@@ -37,14 +33,18 @@
   * Leave event
   * Postback event
   * [Beacon event](messages/send-image/beacon-event.md)
-* Send location
-* Send video
-* Send audio
-* [Send file](messages/send-file.md)
-* Send location
-* Send sticker
+* Get user profile
 
-## Ref.
+## Dirty your hands
+
+* Create operator system
+* Connect bot to database
+* Create Q&A system
+* Create poll system
+* Create ticket system
+
+## Referrence
 
 * [Emojicon](ref/emojicon.md)
+* [Sticker IDs](ref/sticker-ids.md)
 
