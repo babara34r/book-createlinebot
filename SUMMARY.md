@@ -4,6 +4,8 @@
 
 * [Introduction](README.md)
 * [Security](temporary/security.md)
+* Heroku
+* System requirement
 
 ## Contents
 
@@ -47,4 +49,5 @@
 
 * [Emojicon](ref/emojicon.md)
 * [Sticker IDs](ref/sticker-ids.md)
+* [FAQs](ref/faqs.md)
 
