@@ -4,9 +4,8 @@
 
 * [Introduction](README.md)
 * [prepare yourself](prepare-yourself.md)
-* [prepare yourself 2](for-backup.md)
 * [Security](temporary/security.md)
-* Heroku
+* [Git crash course](git-crash-course.md)
 * System requirement
 
 ## Contents
