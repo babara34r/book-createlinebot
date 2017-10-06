@@ -4,10 +4,10 @@
 
 * [Introduction](README.md)
 * [prepare yourself](prepare-yourself.md)
+* [prepare yourself 2](for-backup.md)
 * [Security](temporary/security.md)
 * Heroku
 * System requirement
-* [for backup](for-backup.md)
 
 ## Contents
 
