@@ -6,12 +6,12 @@
 * [prepare yourself](prepare-yourself.md)
 * [Git crash course](git-crash-course.md)
 * [Security](temporary/security.md)
-* System requirement
+* [System requirement](system-requirement.md)
 
 ## Contents
 
 * [Send Messages ](messages/messages.md)
-  * Send string
+  * [Send string](messages/messages/send-string.md)
   * Send image
   * Send sticker
   * Send file
@@ -45,6 +45,7 @@
 * Create Q&A system
 * Create poll system
 * Create ticket system
+* Create payment slip system
 
 ## Referrence
 
