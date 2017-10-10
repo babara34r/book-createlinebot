@@ -5,8 +5,7 @@
 * [Introduction](README.md)
 * [prepare yourself](prepare-yourself.md)
 * [Git crash course](git-crash-course.md)
-* [Security](temporary/security.md)
-* [System requirement](system-requirement.md)
+* [Agreements](system-requirement.md)
 
 ## Contents
 
