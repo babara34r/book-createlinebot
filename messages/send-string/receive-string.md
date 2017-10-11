@@ -75,7 +75,7 @@ if (!is_null($events['events'])) {
 echo "OK";
 ```
 
-เสร็จแล้ว push โค้ดขึ้น repository รอสักแป้บให้ทาง Heroku ดึงโค้ดส่งขึ้นโฮสต์ก่อน ลองทักบอทไปดูด้วยคำอะไรก็ได้ ถ้ามีคำตอบกลับมา แสดงว่าบอทเราทำงานแล้ว อย่าได้เขียนผิดนะครับ เพราะบอทมันจะไม่ตอบอะไรมาเลย แล้วผมเองก็ยังหาวิธีดีบักโค้ดแบบดีๆไม่ได้ 
+เสร็จแล้ว push โค้ดขึ้น repository รอสักแป้บให้ทาง Heroku ดึงโค้ดส่งขึ้นโฮสต์ก่อน ลองทักบอทไปดูด้วยคำอะไรก็ได้ ถ้ามีคำตอบกลับมา แสดงว่าบอทเราทำงานแล้ว อย่าได้เขียนผิดนะครับ เพราะบอทมันจะไม่ตอบอะไรมาเลย แล้วผมเองก็ยังหาวิธีดีบักโค้ดแบบดีๆไม่ได้
 
 ## อธิบายโค้ด
 
@@ -84,6 +84,13 @@ require_once('./vendor/autoload.php');
 ```
 
 ทำการ include ไฟล์ LINEBot SDK เข้ามา
+
+```php
+$channel_token = '1v2OUa9tuMIiDhEg57ANbsRaBDbBGP9nlCC+Dpvt5HrsQ+LqcrImWPUBkH8re/pwqxv56d15kZeMoU/vQ0zuzPFlbhFM7AhRMZwLrSkLdcjbFurwXGOyHLt8MdgzLfAe7r0BsQV5cATlUanW3OgJewdB04t89/1O/w1cDnyilFU=';
+$channel_secret = '9b2c7349ea939ef723a3cb453d774c86';
+```
+
+ป้อน Channel token กับ Channel secret ที่ได้มาจาก LINE API เข้าไป อันนี้ของใครของมันไม่เหมือนกัน
 
 ```php
 $content = file_get_contents('php://input');
@@ -98,7 +105,6 @@ if ($event['type'] == 'message') {
                         switch($event['message']['type']) {
 
                             case 'text':
-
 ```
 
 ถ้าหากว่าสิ่งที่ LINE Server ส่งมาให้นั้นคือเมสเสจ \(ตรงนี้มันจะมีหลายประเภท เวลาบอทออกจากกลุ่มแชทก็จะมี event ส่งมาจาก LINE Server แต่เป็น type อื่นไม่ใช่ message\) ดูมันอีกทีซิว่าเมสเสจเป็นประเภทไหน ถ้าเป็น text
@@ -118,14 +124,6 @@ $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 ```
 
 ให้ส่งข้อความว่า Hello, your message is ต่อท้ายด้วยคำที่เขาส่งมากลับคืนไปให้
-
-
-
-
-
-
-
-
 
 P
 
