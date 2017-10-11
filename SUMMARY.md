@@ -13,7 +13,7 @@
 * [Receive Messages ](messages/send-string.md)
   * [Receive string](messages/send-string/receive-string.md)
   * [Receive image](messages/send-string/receive-image.md)
-  * Receive sticker
+  * [Receive sticker](messages/send-string/receive-sticker.md)
   * Receive file
   * Receive video
   * Receive audio
