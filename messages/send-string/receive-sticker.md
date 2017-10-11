@@ -44,37 +44,37 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-    
-                // Line API send a lot of event type, we interested in message only.
-		if ($event['type'] == 'message') {
+    // Loop through each event
+    foreach ($events['events'] as $event) {
 
-                    // Get replyToken
-                    $replyToken = $event['replyToken'];
-                    
-                    switch($event['message']['type']) {
-                        
-                        case 'sticker':
-                            $messageID = $event['message']['packageId'];
-        
-                            // Reply message
-                            $respMessage = 'Hello, your Sticker Package ID is '. $messageID;
-                    
-                            break;
-                        default:
-                            // Reply message
-                            $respMessage = 'Please send Sticker only';
-                            break;
-                    }
-        
-                    $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_token);
-                    $bot = new \LINE\LINEBot($httpClient, array('channelSecret' => $channel_secret));
-        
-                    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
-                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-		}
-	}
+        // Line API send a lot of event type, we interested in message only.
+        if ($event['type'] == 'message') {
+
+            // Get replyToken
+            $replyToken = $event['replyToken'];
+
+            switch($event['message']['type']) {
+
+                case 'sticker':
+                    $messageID = $event['message']['packageId'];
+
+                    // Reply message
+                    $respMessage = 'Hello, your Sticker Package ID is '. $messageID;
+
+                    break;
+                default:
+                    // Reply message
+                    $respMessage = 'Please send Sticker only';
+                    break;
+            }
+
+            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_token);
+            $bot = new \LINE\LINEBot($httpClient, array('channelSecret' => $channel_secret));
+
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
+            $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+        }
+    }
 }
 
 echo "OK";
@@ -115,10 +115,9 @@ $messageID = $event['message']['packageId'];
 
 // Reply message
 $respMessage = 'Hello, your Sticker Package ID is '. $messageID;
-
 ```
 
-ถ้าหากยูสเซอร์ส่ง Sticker หาบอทให้บอทส่งข้อความตอบไปว่า  Hello, your Sticker Package ID is 
+ถ้าหากยูสเซอร์ส่ง Sticker หาบอทให้บอทส่งข้อความตอบไปว่า  Hello, your Sticker Package ID is
 
 ```php
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_token);
