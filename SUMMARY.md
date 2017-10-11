@@ -11,7 +11,7 @@
 ## Contents
 
 * [Receive Messages ](messages/send-string.md)
-  * Receive string
+  * [Receive string](messages/send-string/receive-string.md)
   * Receive image
   * Receive sticker
   * Receive file
