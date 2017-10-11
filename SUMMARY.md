@@ -5,10 +5,19 @@
 * [Introduction](README.md)
 * [prepare yourself](prepare-yourself.md)
 * [Git crash course](git-crash-course.md)
+* [Composer crash course](composer.md)
 * [Agreements](system-requirement.md)
 
 ## Contents
 
+* [Receive Messages ](messages/send-string.md)
+  * Receive string
+  * Receive image
+  * Receive sticker
+  * Receive file
+  * Receive video
+  * Receive audio
+  * Receive location
 * [Send Messages ](messages/messages.md)
   * [Send string](messages/messages/send-string.md)
   * Send image
@@ -19,14 +28,6 @@
   * Send location
   * Send image map
   * Send message template
-* [Receive Messages ](messages/send-string.md)
-  * Receive string
-  * Receive image
-  * Receive sticker
-  * Receive file
-  * Receive video
-  * Receive audio
-  * Receive location
 * [Events](messages/send-image.md)
   * [Message event](messages/send-image/message.md)
   * Follow event
