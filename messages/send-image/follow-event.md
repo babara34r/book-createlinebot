@@ -1,25 +1,19 @@
-# Message Events
+# Follow Events
 
-อีเว้นท์นี้จะเกิดขึ้นเมื่อมียูสเซอร์คุยกับบอท ไม่ว่าจะเป็นการส่งข้อความธรรมดา ส่ง sticker ส่ง location ส่งรูปภาพ ส่งวิดีโอ หรือ ส่งไฟล์เสียง ก็จะเกิดอีเว้นท์นี้ขึ้น เมสเสจที่ทาง LINE Server ส่งให้ระบบของเราก็จะเป็นในรูปแบบ
+อีเว้นท์นี้จะเกิดขึ้นเมื่อมียูสเซอร์เพิ่มบอทเป็นเพื่อน หรือ ปลดบล้อกบอท โดย LINE Server จะส่งเมสเสจหาระบบของเราดังรูปแบบด้านล่าง 
 
-```
+```JSON
 {
    "events":[
       {
-         "replyToken":"nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
-         "type":"message",
-         "timestamp":1462629479859,
-         "source":{
-            "type":"user",
-            "userId":"U206d25c2ea6bd87c17655609a1c37cb8"
-         },
-         "message":{
-            "id":"325708",
-            "type":"file",
-            "fileName":"file.txt",
-            "fileSize":2138
-         }
-      }
+  "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+  "type": "follow",
+  "timestamp": 1462629479859,
+  "source": {
+    "type": "user",
+    "userId": "U206d25c2ea6bd87c17655609a1c37cb8"
+  }
+}
    ]
 }
 ```

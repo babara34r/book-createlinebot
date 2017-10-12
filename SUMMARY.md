@@ -27,7 +27,7 @@
   * [Send location](messages/messages/send-location.md)
 * [Events](messages/send-image.md)
   * [Message event](messages/send-image/message.md)
-  * Follow event
+  * [Follow event](messages/send-image/follow-event.md)
   * Unfollow event
   * Join event
   * Leave event
