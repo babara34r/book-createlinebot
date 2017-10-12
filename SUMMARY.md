@@ -17,7 +17,7 @@
   * [Receive file](messages/send-string/receive-file.md)
   * [Receive video](messages/send-string/receive-video.md)
   * [Receive audio](messages/send-string/receive-audio.md)
-  * Receive location
+  * [Receive location](messages/send-string/receive-location.md)
 * [Send Messages ](messages/messages.md)
   * [Send string](messages/messages/send-string.md)
   * Send image
