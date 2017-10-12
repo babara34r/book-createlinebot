@@ -24,9 +24,9 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-    
+    // Loop through each event
+    foreach ($events['events'] as $event) {
+
         // Get replyToken
         $replyToken = $event['replyToken'];
 
@@ -39,12 +39,11 @@ if (!is_null($events['events'])) {
 
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($originalContentUrl, $previewImageUrl);
         $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-        
-	}
+
+    }
 }
 
 echo "OK";
-
 ```
 
 ตัวอย่างที่กำหนดเขียนนี้ เราจะให้บอทถามยูสเซอร์ว่า คุณเพศอะไร? ถ้าหากเขาตอบมาว่า m เราก็ให้บอทตอบไปว่า "What sup man. Go away" แต่ถ้ายูสเซอร์ตอบมาว่า f เราจะให้บอทตอบกลับไปว่า Love you lady.
@@ -65,8 +64,11 @@ $channel_secret = '9b2c7349ea939ef723a3cb453d774c86';
 ป้อน Channel token กับ Channel secret ที่ได้มาจาก LINE API เข้าไป อันนี้ของใครของมันไม่เหมือนกัน
 
 ```php
-$content = file_get_contents('php://input');
-$events = json_decode($content, true);
+// Image
+        $originalContentUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
+        $previewImageUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
+
+
 ```
 
 get ค่าที่ LINE Server ส่งมาให้แล้วแปลงจาก JSON ไปเป็น Array
