@@ -24,9 +24,7 @@
   * [Send sticker](messages/messages/send-sticker.md)
   * [Send video](messages/messages/send-video.md)
   * [Send audio](messages/messages/send-audio.md)
-  * Send location
-  * Send image map
-  * Send message template
+  * [Send location](messages/messages/send-location.md)
 * [Events](messages/send-image.md)
   * [Message event](messages/send-image/message.md)
   * Follow event
