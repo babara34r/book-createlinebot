@@ -4,7 +4,7 @@
 
 ![](/assets/2017-10-12_1106-sticker.png)
 
-เราจะส่ง packageId กับ stickerId ไปให้ยูสเซอร์ ซึ่งคุณสามารถดูรายการ sticker ได้จาก Referrence ท้ายหนังสือ 
+เราจะส่ง packageId กับ stickerId ไปให้ยูสเซอร์ ซึ่งคุณสามารถดูรายการ sticker ได้จาก Referrence ท้ายหนังสือ
 
 ## เปิดไฟล์ index.php ขึ้นมาแล้วเขียนโค้ดดังนี้
 
@@ -22,9 +22,9 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-    
+    // Loop through each event
+    foreach ($events['events'] as $event) {
+
         // Get replyToken
         $replyToken = $event['replyToken'];
 
@@ -37,12 +37,11 @@ if (!is_null($events['events'])) {
 
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\StickerMessageBuilder($packageId, $stickerId);
         $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-        
-	}
+
+    }
 }
 
 echo "OK";
-
 ```
 
 ตัวอย่างที่กำหนดเขียนนี้ เราจะให้บอทถามยูสเซอร์ว่า คุณเพศอะไร? ถ้าหากเขาตอบมาว่า m เราก็ให้บอทตอบไปว่า "What sup man. Go away" แต่ถ้ายูสเซอร์ตอบมาว่า f เราจะให้บอทตอบกลับไปว่า Love you lady.
@@ -70,24 +69,36 @@ $events = json_decode($content, true);
 get ค่าที่ LINE Server ส่งมาให้แล้วแปลงจาก JSON ไปเป็น Array
 
 ```php
-switch(strtolower($ask)) {
-    case 'm':
-        $respMessage = 'What sup man. Go away!';
-        break;
-    case 'f':
-        $respMessage = 'Love you lady.';
-        break;
-    default:
-        $respMessage = 'What is your sex? M or F';
-        break;    
-}
+foreach ($events['events'] as $event) {
+
+
 ```
 
-ถ้าหากว่ายูสเซอร์พิมพ์คุยกับบอทมา ไม่ใช่ m/f ให้บอทถามไปว่า What is your sex? M or F
+เรา Loop ตรงนี้เพื่อตามหา replyToken
 
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า m ให้บอทตอบกลับไปว่า What sup man. Go away!
+get ค่าที่ LINE Server ส่งมาให้แล้วแปลงจาก JSON ไปเป็น Array
 
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า f ให้บอทตอบกลับไปว่า Love you lady.
+```php
+foreach ($events['events'] as $event) {
+
+
+```
+
+เรา Loop ตรงนี้เพื่อตามหา replyToken
+
+
+
+```php
+
+// Sticker
+$packageId = 1;
+$stickerId = 410;
+
+```
+
+จัดเตรียม sticker ที่ต้องการส่งให้ยูสเซอร์
+
+
 
 ```php
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
