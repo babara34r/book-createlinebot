@@ -86,11 +86,14 @@ $stickerId = 410;
 จัดเตรียม sticker ที่ต้องการส่งให้ยูสเซอร์
 
 ```php
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\StickerMessageBuilder($packageId, $stickerId);
 $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+
 ```
 
-ใช้คลาส TextMessageBuilder สร้างข้อความตอบกลับยูสเซอร์
+ใช้คลาส StickerMessageBuilder เป็นตัวสร้าง sticker ส่งไปให้ยูสเซอร์ ซึ่งคลาส StickerMessageBuilder นี้ต้องการพารามิเตอร์ 2 ตัวคือ package ID และ sticker ID
+
+
 
 P
 
