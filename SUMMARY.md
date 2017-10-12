@@ -16,7 +16,7 @@
   * [Receive sticker](messages/send-string/receive-sticker.md)
   * [Receive file](messages/send-string/receive-file.md)
   * [Receive video](messages/send-string/receive-video.md)
-  * Receive audio
+  * [Receive audio](messages/send-string/receive-audio.md)
   * Receive location
 * [Send Messages ](messages/messages.md)
   * [Send string](messages/messages/send-string.md)
