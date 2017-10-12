@@ -44,7 +44,7 @@ if (!is_null($events['events'])) {
 
             // Get replyToken
             $replyToken = $event['replyToken'];
-            
+
             // Greeting
             $respMessage = 'Thanks you. I try to be your best friend.';
 

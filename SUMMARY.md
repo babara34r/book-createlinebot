@@ -28,7 +28,7 @@
 * [Events](messages/send-image.md)
   * [Message event](messages/send-image/message.md)
   * [Follow event](messages/send-image/follow-event.md)
-  * Unfollow event
+  * [Unfollow event](messages/send-image/unfollow-event.md)
   * Join event
   * Leave event
   * Postback event
