@@ -16,16 +16,6 @@ longitude : ตัวเลขลองจิจูด
 
 ![](/assets/2017-10-12_1235.png)
 
-
-
-
-
-
-
-
-
-
-
 ## เปิดไฟล์ index.php ขึ้นมาแล้วเขียนโค้ดดังนี้
 
 ```php
@@ -42,9 +32,9 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-    
+    // Loop through each event
+    foreach ($events['events'] as $event) {
+
         // Get replyToken
         $replyToken = $event['replyToken'];
 
@@ -59,15 +49,14 @@ if (!is_null($events['events'])) {
 
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\LocationMessageBuilder($title, $address, $latitude, $longitude);
         $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-        
-	}
+
+    }
 }
 
 echo "OK";
-
 ```
 
-ตัวอย่างที่กำหนดเขียนนี้ เราจะให้บอทถามยูสเซอร์ว่า คุณเพศอะไร? ถ้าหากเขาตอบมาว่า m เราก็ให้บอทตอบไปว่า "What sup man. Go away" แต่ถ้ายูสเซอร์ตอบมาว่า f เราจะให้บอทตอบกลับไปว่า Love you lady.
+
 
 ## อธิบายโค้ด
 
@@ -92,31 +81,40 @@ $events = json_decode($content, true);
 get ค่าที่ LINE Server ส่งมาให้แล้วแปลงจาก JSON ไปเป็น Array
 
 ```php
-switch(strtolower($ask)) {
-    case 'm':
-        $respMessage = 'What sup man. Go away!';
-        break;
-    case 'f':
-        $respMessage = 'Love you lady.';
-        break;
-    default:
-        $respMessage = 'What is your sex? M or F';
-        break;    
-}
+// Loop through each event
+    foreach ($events['events'] as $event) {
+
+        // Get replyToken
+        $replyToken = $event['replyToken'];
+
+
 ```
 
-ถ้าหากว่ายูสเซอร์พิมพ์คุยกับบอทมา ไม่ใช่ m/f ให้บอทถามไปว่า What is your sex? M or F
+loop หา replyToken
 
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า m ให้บอทตอบกลับไปว่า What sup man. Go away!
 
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า f ให้บอทตอบกลับไปว่า Love you lady.
 
 ```php
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
+// Location
+$title = 'I am here';
+$address = 'Fitness 7 Ratchada';
+$latitude = '13.7743425';
+$longitude = '100.5680782';
+
+```
+
+เตรียมข้อมูล
+
+
+
+```php
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\LocationMessageBuilder($title, $address, $latitude, $longitude);
 $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 ```
 
-ใช้คลาส TextMessageBuilder สร้างข้อความตอบกลับยูสเซอร์
+ใช้คลาส LocationMessageBuilder สร้าง Location ส่งให้ยูสเซอร์ โดย LocationMessageBuilder ต้องการพารามิเตอร์ 4 ตัว คือ title, address, latitude, longitude
+
+
 
 P
 
