@@ -70,35 +70,21 @@ get ค่าที่ LINE Server ส่งมาให้แล้วแปล
 
 ```php
 foreach ($events['events'] as $event) {
+        // Get replyToken
+        $replyToken = $event['replyToken'];
 
 
 ```
 
 เรา Loop ตรงนี้เพื่อตามหา replyToken
 
-get ค่าที่ LINE Server ส่งมาให้แล้วแปลงจาก JSON ไปเป็น Array
-
 ```php
-foreach ($events['events'] as $event) {
-
-
-```
-
-เรา Loop ตรงนี้เพื่อตามหา replyToken
-
-
-
-```php
-
 // Sticker
 $packageId = 1;
 $stickerId = 410;
-
 ```
 
 จัดเตรียม sticker ที่ต้องการส่งให้ยูสเซอร์
-
-
 
 ```php
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
