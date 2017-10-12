@@ -70,10 +70,9 @@ get ค่าที่ LINE Server ส่งมาให้แล้วแปล
 
 ```php
 foreach ($events['events'] as $event) {
+
         // Get replyToken
         $replyToken = $event['replyToken'];
-
-
 ```
 
 เรา Loop ตรงนี้เพื่อตามหา replyToken
