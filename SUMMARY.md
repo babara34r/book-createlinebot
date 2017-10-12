@@ -20,7 +20,7 @@
   * [Receive location](messages/send-string/receive-location.md)
 * [Send Messages ](messages/messages.md)
   * [Send string](messages/messages/send-string.md)
-  * Send image
+  * [Send image](messages/messages/send-image.md)
   * Send sticker
   * Send file
   * Send video
