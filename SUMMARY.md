@@ -29,9 +29,8 @@
   * [Message event](messages/send-image/message.md)
   * [Follow event](messages/send-image/follow-event.md)
   * [Unfollow event](messages/send-image/unfollow-event.md)
-  * Join event
-  * Leave event
-  * Postback event
+  * [Join event](messages/send-image/join-event.md)
+  * [Leave event](messages/send-image/leave-event.md)
   * [Beacon event](messages/send-image/beacon-event.md)
 * Get user profile
 

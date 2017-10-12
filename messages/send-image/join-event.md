@@ -1,24 +1,24 @@
-# Follow Events
+# Join Events
 
-อีเว้นท์นี้จะเกิดขึ้นเมื่อมียูสเซอร์เพิ่มบอทเป็นเพื่อน หรือ ปลดบล้อกบอท โดย LINE Server จะส่งเมสเสจหาระบบของเราดังรูปแบบด้านล่าง
+อีเว้นท์นี้จะเกิดขึ้นเมื่อบอทถูกเชิญให้เข้ากลุ่ม โดย LINE Server จะส่งเมสเสจหาระบบของเราดังรูปแบบด้านล่าง
 
 ```JSON
 {
    "events":[
       {
-       "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
-       "type": "follow",
-       "timestamp": 1462629479859,
-       "source": {
-         "type": "user",
-         "userId": "U206d25c2ea6bd87c17655609a1c37cb8"
+         "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+         "type": "join",
+         "timestamp": 1462629479859,
+         "source": {
+           "type": "group",
+           "groupId": "cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+         }
        }
-     }
    ]
 }
 ```
 
-type จะเป็น follow และ LINE ยังใจดีแนบ userId มาบอกด้วยว่าใครเป็นคนเพิ่มบอทเป็นเพื่อน
+type จะเป็น join 
 
 ## ตัวอย่างการเขียนโค้ด
 
@@ -40,13 +40,13 @@ if (!is_null($events['events'])) {
     foreach ($events['events'] as $event) {
 
         // Line API send a lot of event type, we interested in message only.
-        if ($event['type'] == 'follow') {
+        if ($event['type'] == 'join') {
 
             // Get replyToken
             $replyToken = $event['replyToken'];
 
             // Greeting
-            $respMessage = 'Thanks you. I try to be your best friend.';
+            $respMessage = 'Hi guys, I am MR.Robot. You can ask me everything.';
 
             $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_token);
             $bot = new \LINE\LINEBot($httpClient, array('channelSecret' => $channel_secret));
@@ -60,5 +60,5 @@ if (!is_null($events['events'])) {
 echo "OK";
 ```
 
-เมื่อมีคนเพิ่มบอทเป็นเพื่อน บอทก็จะทักเพื่อนใหม่ไปว่า "Thanks you. I try to be your best friend."
+เมื่อบอทได้เข้าร่วมในกลุ่ม บอทจะเริ่มต้นโฆษณาสรรพคุณตัวเอง "Hi guys, I am MR.Robot. You can ask me everything."
 
