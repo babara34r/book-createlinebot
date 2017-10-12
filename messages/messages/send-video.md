@@ -24,9 +24,9 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-    
+    // Loop through each event
+    foreach ($events['events'] as $event) {
+
         // Get replyToken
         $replyToken = $event['replyToken'];
 
@@ -39,15 +39,12 @@ if (!is_null($events['events'])) {
 
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($originalContentUrl, $previewImageUrl);
         $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-        
-	}
+
+    }
 }
 
 echo "OK";
-
 ```
-
-
 
 ## อธิบายโค้ด
 
@@ -73,26 +70,35 @@ get ค่าที่ LINE Server ส่งมาให้แล้วแปล
 
 ```php
 // Loop through each event
-	foreach ($events['events'] as $event) {
-    
-        // Get replyToken
-        $replyToken = $event['replyToken'];
+foreach ($events['events'] as $event) {
 
+    // Get replyToken
+    $replyToken = $event['replyToken'];
+```
+
+loop เพื่อหา replyToken
+
+
+
+```php
+// Video
+$originalContentUrl = 'https://www.select2web.com.com/the-fuji.mp4';
+$previewImageUrl = 'https://www.select2web.com.com/the-fuji.jpg';
 
 ```
 
-ถ้าหากว่ายูสเซอร์พิมพ์คุยกับบอทมา ไม่ใช่ m/f ให้บอทถามไปว่า What is your sex? M or F
+เตรียมข้อมูลสำหรับส่ง video ให้ยูสเซอร์
 
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า m ให้บอทตอบกลับไปว่า What sup man. Go away!
 
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า f ให้บอทตอบกลับไปว่า Love you lady.
+
+
 
 ```php
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($originalContentUrl, $previewImageUrl);
 $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 ```
 
-ใช้คลาส TextMessageBuilder สร้างข้อความตอบกลับยูสเซอร์
+ใช้คลาส VideoMessageBuilder สร้างข้อความตอบกลับยูสเซอร์ โดยคลาส VideoMessageBuilder ต้องการพารามิเตอร์ 2 ตัวคือ ที่อยู่ไฟล์วิดีโอ และ ที่อยู่รูปภาพที่จะเอาไปทำ preview
 
 P
 
