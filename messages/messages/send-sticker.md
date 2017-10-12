@@ -1,10 +1,10 @@
-# เขียนโค้ดส่งข้อความให้ยูสเซอร์
+# เขียนโค้ดส่ง Sticker ให้ยูสเซอร์
 
-ก่อนอื่นเรามาดูข้อกำหนดที่ LINE กำหนดไว้เกี่ยวกับการส่งข้อความตอบกลับยูสเซอร์
+ก่อนอื่นเรามาดูข้อกำหนดที่ LINE กำหนดไว้เกี่ยวกับการส่ง Sticker
 
-![](/assets/2017-10-12_1105-text.png)
+![](/assets/2017-10-12_1106-sticker.png)
 
-text : กำหนดความยาวไว้ที่ 2,000 ตัวอักษร และสามารถแทรก emojicon ในระหว่างข้อความได้ ซึ่ง emojicon นั้นก็เป็นแค่ข้อความแหละ ทาง LINE จะเป็นคนแปลงมันให้ออกมาเป็นรูปภาพแสดงอารมณ์เอง emojicon ดูได้จาก Referrence ท้ายหนังสือ
+เราจะส่ง packageId กับ stickerId ไปให้ยูสเซอร์ ซึ่งคุณสามารถดูรายการ sticker ได้จาก Referrence ท้ายหนังสือ 
 
 ## เปิดไฟล์ index.php ขึ้นมาแล้วเขียนโค้ดดังนี้
 
@@ -22,35 +22,27 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-    // Loop through each event
-    foreach ($events['events'] as $event) {
-
+	// Loop through each event
+	foreach ($events['events'] as $event) {
+    
         // Get replyToken
         $replyToken = $event['replyToken'];
-        $ask = $event['message']['text'];
 
-        switch(strtolower($ask)) {
-            case 'm':
-                $respMessage = 'What sup man. Go away!';
-                break;
-            case 'f':
-                $respMessage = 'Love you lady.';
-                break;
-            default:
-                $respMessage = 'What is your sex? M or F';
-                break;    
-        }
+        // Sticker
+        $packageId = 1;
+        $stickerId = 410;
 
         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_token);
         $bot = new \LINE\LINEBot($httpClient, array('channelSecret' => $channel_secret));
 
-        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\StickerMessageBuilder($packageId, $stickerId);
         $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-
-    }
+        
+	}
 }
 
 echo "OK";
+
 ```
 
 ตัวอย่างที่กำหนดเขียนนี้ เราจะให้บอทถามยูสเซอร์ว่า คุณเพศอะไร? ถ้าหากเขาตอบมาว่า m เราก็ให้บอทตอบไปว่า "What sup man. Go away" แต่ถ้ายูสเซอร์ตอบมาว่า f เราจะให้บอทตอบกลับไปว่า Love you lady.

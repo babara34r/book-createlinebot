@@ -1,4 +1,4 @@
-# เขียนโค้ดส่งรูปภาพตอบกลับผู้ใช้
+# เขียนโค้ดส่งรูปภาพให้ยูสเซอร์
 
 ก่อนอื่นเรามาดูข้อกำหนดที่ LINE กำหนดไว้เกี่ยวกับการส่งรูปภาพตอบกลับยูสเซอร์
 
@@ -69,17 +69,14 @@ $originalContentUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shin
 $previewImageUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
 ```
 
-รูปภาพต้นฉบับ และ รูปภาพที่จะเอามาทำ preview 
+รูปภาพต้นฉบับ และ รูปภาพที่จะเอามาทำ preview
 
 ```php
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($originalContentUrl, $previewImageUrl);
 $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-
 ```
 
 ใช้คลาส ImageMessageBuilder สร้างรูปภาพส่งไปให้ยูสเซอร์ คลาสตัวนี้ต้องการพารามิเตอร์สองตัว คือ URL ของไฟล์ภาพต้นฉบับ และ URL ของไฟล์ภาพที่จะนำไปทำ preview
-
-
 
 P
 

@@ -21,7 +21,7 @@
 * [Send Messages ](messages/messages.md)
   * [Send string](messages/messages/send-string.md)
   * [Send image](messages/messages/send-image.md)
-  * Send sticker
+  * [Send sticker](messages/messages/send-sticker.md)
   * Send file
   * Send video
   * Send audio
