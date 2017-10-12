@@ -65,40 +65,21 @@ $channel_secret = '9b2c7349ea939ef723a3cb453d774c86';
 
 ```php
 // Image
-        $originalContentUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
-        $previewImageUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
-
-
+$originalContentUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
+$previewImageUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
 ```
 
-get ค่าที่ LINE Server ส่งมาให้แล้วแปลงจาก JSON ไปเป็น Array
+รูปภาพต้นฉบับ และ รูปภาพที่จะเอามาทำ preview 
 
 ```php
-switch(strtolower($ask)) {
-    case 'm':
-        $respMessage = 'What sup man. Go away!';
-        break;
-    case 'f':
-        $respMessage = 'Love you lady.';
-        break;
-    default:
-        $respMessage = 'What is your sex? M or F';
-        break;    
-}
-```
-
-ถ้าหากว่ายูสเซอร์พิมพ์คุยกับบอทมา ไม่ใช่ m/f ให้บอทถามไปว่า What is your sex? M or F
-
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า m ให้บอทตอบกลับไปว่า What sup man. Go away!
-
-ถ้าหากว่ายูสเซอร์ตอบบอทมาว่า f ให้บอทตอบกลับไปว่า Love you lady.
-
-```php
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($respMessage);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($originalContentUrl, $previewImageUrl);
 $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+
 ```
 
-ใช้คลาส TextMessageBuilder สร้างข้อความตอบกลับยูสเซอร์
+ใช้คลาส ImageMessageBuilder สร้างรูปภาพส่งไปให้ยูสเซอร์ คลาสตัวนี้ต้องการพารามิเตอร์สองตัว คือ URL ของไฟล์ภาพต้นฉบับ และ URL ของไฟล์ภาพที่จะนำไปทำ preview
+
+
 
 P
 
