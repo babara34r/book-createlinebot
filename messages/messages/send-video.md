@@ -1,4 +1,4 @@
-# เขียนโค้ดส่ videoให้ยูสเซอร์
+# เขียนโค้ดส่ง videoให้ยูสเซอร์
 
 ก่อนอื่นเรามาดูข้อกำหนดที่ LINE กำหนดไว้เกี่ยวกับการส่ง video ก่อน
 
@@ -78,20 +78,13 @@ foreach ($events['events'] as $event) {
 
 loop เพื่อหา replyToken
 
-
-
 ```php
 // Video
 $originalContentUrl = 'https://www.select2web.com.com/the-fuji.mp4';
 $previewImageUrl = 'https://www.select2web.com.com/the-fuji.jpg';
-
 ```
 
 เตรียมข้อมูลสำหรับส่ง video ให้ยูสเซอร์
-
-
-
-
 
 ```php
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($originalContentUrl, $previewImageUrl);

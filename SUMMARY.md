@@ -23,7 +23,7 @@
   * [Send image](messages/messages/send-image.md)
   * [Send sticker](messages/messages/send-sticker.md)
   * [Send video](messages/messages/send-video.md)
-  * Send audio
+  * [Send audio](messages/messages/send-audio.md)
   * Send location
   * Send image map
   * Send message template
