@@ -36,10 +36,10 @@
 
 ## Dirty your hands
 
-* Create operator system
-* Connect bot to database
-* Create Q&A system
-* Create poll system
+* [Create operator system](dirty-your-hands/create-operator-system.md)
+* [Connect bot to database](dirty-your-hands/connect-bot-to-database.md)
+* [Create Q&A system](dirty-your-hands/create-qanda-system.md)
+* [Create poll system](dirty-your-hands/create-poll-system.md)
 * Create ticket system
 * Create payment slip system
 
@@ -48,4 +48,5 @@
 * [Emojicon](ref/emojicon.md)
 * [Sticker IDs](ref/sticker-ids.md)
 * [FAQs](ref/faqs.md)
+* [Problems](ref/problem.md)
 
