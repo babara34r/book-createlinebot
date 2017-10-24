@@ -32,7 +32,6 @@
   * [Join event](messages/send-image/join-event.md)
   * [Leave event](messages/send-image/leave-event.md)
   * [Beacon event](messages/send-image/beacon-event.md)
-* [Get user profile](messages/get-user-profile.md)
 
 ## Dirty your hands
 
