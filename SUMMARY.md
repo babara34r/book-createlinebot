@@ -40,7 +40,7 @@
 * [Connect bot to database](dirty-your-hands/connect-bot-to-database.md)
 * [Create appointment system](dirty-your-hands/create-ticket-system.md)
 * [Create poll system](dirty-your-hands/create-poll-system.md)
-* Create payment slip system
+* [Create payment slip system](dirty-your-hands/create-payment-slip-system.md)
 
 ## Referrence
 
