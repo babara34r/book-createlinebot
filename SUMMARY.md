@@ -38,9 +38,8 @@
 
 * [Create operator system](dirty-your-hands/create-operator-system.md)
 * [Connect bot to database](dirty-your-hands/connect-bot-to-database.md)
-* [Create Q&A system](dirty-your-hands/create-qanda-system.md)
+* [Create appointment system](dirty-your-hands/create-ticket-system.md)
 * [Create poll system](dirty-your-hands/create-poll-system.md)
-* Create ticket system
 * Create payment slip system
 
 ## Referrence
