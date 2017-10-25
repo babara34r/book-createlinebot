@@ -89,14 +89,14 @@ use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 
 channel token และ secret token เอาได้จาก LINE ตรงที่เราสร้างบอท
 
-```
+```php
 $channel_token = '1v2OUa9tuMIiDhEg57ANbsRaBDbBGP9nlCC+Dpvt5HrsQ+LqcrImWPUBkH8re/pwqxv56d15kZeMoU/vQ0zuzPFlbhFM7AhRMZwLrSkLdcjbFurwXGOyHLt8MdgzLfAe7r0BsQV5cATlUanW3OgJewdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '9b2c7349ea939ef723a3cb453d774c86';
 ```
 
 get ข้อมูลที่ทาง LINE API ส่งมาให้แล้วแปลงเป็นอะเรย์ เพราะข้อมูลที่ LINE API ส่งมาให้นั้นอยู่ในรูปแบบของ JSON
 
-```
+```php
 // Get message from Line API
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
@@ -116,7 +116,7 @@ if ($event['type'] == 'message' && $event['message']['type'] == 'text')
 
 ถ้าหากว่าเป็นการพิมพ์ถามคำถามบอทเข้ามา ก็ให้บอทตรวจสอบว่าเขาถามอะไร โดยใช้คำสั่ง switch case เป็นตัวหา เมื่อได้คำถามว่าเขาถามอะไรก็ให้ส่งคำตอบกลับไปให้ ส่วนคำตอบที่อยู่นอกเหนือจากที่เตรียมไว้ ก็ไม่ต้องตอบอะไร
 
-```
+```php
 // Get replyToken
 $replyToken = $event['replyToken'];
 

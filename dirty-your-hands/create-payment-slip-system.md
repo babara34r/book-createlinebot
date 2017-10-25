@@ -149,7 +149,7 @@ require_once('./vendor/autoload.php');
 
 เรียกใช้ namespace เพื่อว่าเวลาเรียกใช้งานคลาส คำสั่งจะได้ไม่ยาว
 
-```
+```php
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
@@ -157,14 +157,14 @@ use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 
 สร้างตัวแปรเก็บ channel token และ secret token เอาไว้จะได้ใช้ง่ายๆ
 
-```
+```php
 $channel_token = '1v2OUa9tuMIiDhEg57ANbsRaBDbBGP9nlCC+Dpvt5HrsQ+LqcrImWPUBkH8re/pwqxv56d15kZeMoU/vQ0zuzPFlbhFM7AhRMZwLrSkLdcjbFurwXGOyHLt8MdgzLfAe7r0BsQV5cATlUanW3OgJewdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '9b2c7349ea939ef723a3cb453d774c86';
 ```
 
 สร้างตัวแปร bot ไว้ใช้งาน
 
-```
+```php
 // Create bot
 $httpClient = new CurlHTTPClient($channel_token);
 $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
@@ -172,7 +172,7 @@ $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
 
 สร้างการเชื่อมต่อฐานข้อมูลรอไว้
 
-```
+```php
 // Database connection
 $host = 'ec2-174-129-223-193.compute-1.amazonaws.com';
 $dbname = 'd74bjtc28mea5m';
@@ -183,7 +183,7 @@ $connection = new PDO("pgsql:host=$host;dbname=$dbname", $user, $pass);
 
 get ข้อมูลที่ทาง LINE API ส่งมาให้แล้วแปลงเป็นอะเรย์
 
-```
+```php
 // Get message from Line API
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
@@ -191,26 +191,26 @@ $events = json_decode($content, true);
 
 ถ้าหากว่ามีการส่งข้อมูลมาจาก LINE API
 
-```
+```php
 if (!is_null($events['events']))
 ```
 
 loop มันออกมาทีละตัว
 
-```
+```php
 foreach ($events['events'] as $event)
 ```
 
 ตรวจสอบ event type ว่าเป็น message ใช่ไหม เพราะว่า event type ที่ LINE API ส่งมาให้นั้นไม่ได้มีแต่ message อย่างเดียว แต่เราต้องการแค่ message เท่านั้น
 
-```
+```php
 // Line API send a lot of event type, we interested in message only.
 if ($event['type'] == 'message')
 ```
 
 เมื่อเรารู้แล้วว่ามันเป็น message เราก็เอามันมาแยกประเภทต่อ
 
-```
+```php
 switch($event['message']['type'])
 ```
 
@@ -218,7 +218,7 @@ switch($event['message']['type'])
 
 หลังบันทึกข้อมูลเสร็จก็ส่ง message ไปบอกยูสเซอร์ว่า "Your data has saved."
 
-```
+```php
 case 'text':
 
     $sql = sprintf(
@@ -260,7 +260,7 @@ case 'text':
 
 หลังบันทึกข้อมูลเรียบร้อยแล้ว ส่งข้อความไปบอกยูสเซอร์ว่า "Your data has saved."
 
-```
+```php
 case 'image':
 
     // Get file content.
