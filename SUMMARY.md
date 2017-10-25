@@ -8,11 +8,11 @@
 * [Composer crash course](composer.md)
 * [Postgresql crash course](postgresql-crash-course.md)
   * Create database
-  * Install PGAdmin
-  * Connect Postgresql with PHP
-  * SELECT
-  * UPDATE
-  * DELETE
+  * [Install PGAdmin](postgresql-crash-course/install-pgadmin.md)
+  * [Connect Postgresql with PHP](postgresql-crash-course/connect-postgresql-with-php.md)
+  * [SELECT](postgresql-crash-course/select.md)
+  * [INSERT](postgresql-crash-course/insert.md)
+  * [UPDATE](postgresql-crash-course/update.md)
 * [Agreements](system-requirement.md)
 
 ## Contents
